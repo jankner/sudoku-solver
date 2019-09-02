@@ -1,0 +1,73 @@
+# This YAML file describes your package. Stack will automatically generate a
+# Cabal file when you run `stack build`. See the hpack website for help with
+# this file: <https://github.com/sol/hpack>.
+benchmarks:
+  sudoku-benchmarks:
+    dependencies:
+    - base
+    - sudoku
+    - criterion
+    - vector
+    ghc-options:
+    - -rtsopts
+    - -threaded
+    - -with-rtsopts=-N
+    - -O2
+    main: Main.hs
+    source-dirs: benchmark
+category: Other
+description: sudoku is a new Haskeleton package.
+executables:
+  sudoku:
+    dependencies:
+    - base
+    - sudoku
+    - vector
+    - random
+    ghc-options:
+    - -rtsopts
+    - -threaded
+    - -with-rtsopts=-N
+    - -O2
+    main: Main.hs
+    source-dirs: executable
+extra-source-files:
+- CHANGELOG.md
+- LICENSE.md
+- package.yaml
+- README.md
+- stack.yaml
+ghc-options: -Wall -fno-warn-type-defaults
+default-extensions: LambdaCase GeneralizedNewtypeDeriving FlexibleContexts
+github: githubuser/sudoku
+library:
+  dependencies:
+  - base
+  - containers
+  - random
+  - random-shuffle
+  - vector
+  - mtl
+  - integer-gmp
+  - ghc-prim
+  - integer-logarithms
+  source-dirs: library
+  default-extensions: LambdaCase GeneralizedNewtypeDeriving FlexibleContexts
+license: MIT
+maintainer: Author name here
+name: sudoku
+synopsis: A new Haskeleton package.
+tests:
+  sudoku-test-suite:
+    dependencies:
+    - base
+    - sudoku
+    - tasty
+    - tasty-hspec
+    ghc-options:
+    - -rtsopts
+    - -threaded
+    - -with-rtsopts=-N
+    main: Main.hs
+    source-dirs: test-suite
+version: '0.0.0'
